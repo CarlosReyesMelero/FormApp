@@ -16,9 +16,9 @@
                            placeholder="Nombre del producto"
                            formControlName="name">
 
-                    <span class="form-text text-danger">
+                    <span *ngIf="isValidField('name')" class="form-text text-danger">
                         <!-- Debe de ser de 3 letras -->
-                        error message
+                        {{ getFieldError('name')}}
                     </span>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                            class="form-control"
                            placeholder="Precio del producto"
                            formControlName="price">
-                    <span class="form-text text-danger">
-                        El precio debe de ser 0 o mayor
+                    <span *ngIf="isValidField('price')" class="form-text text-danger">
+                        El precio debe de ser 0 o mayor.
                     </span>
                 </div>
             </div>
@@ -46,8 +46,8 @@
                            placeholder="Existencias del producto"
                            formControlName="inStorage">
 
-                    <span class="form-text text-danger">
-                         Las existencias deben de ser 0 o mayor
+                    <span *ngIf="isValidField('inStorage')" class="form-text text-danger">
+                         Las existencias deben de ser 0 o mayor.
                     </span>
                 </div>
             </div>
@@ -72,25 +72,31 @@
 
 
 
-<!-- <div class="row">
+<div class="row">
     <div class="col">
 
         <span>Valid</span>
-        <pre>{{ 'objeto' | json }}</pre>
+        <pre>{{ myForm.valid | json }}</pre>
 
         <span>Pristine</span>
-        <pre>{{ 'objeto' | json }}</pre>
+        <pre>{{ myForm.pristine | json }}</pre>
 
         <span>Touched</span>
-        <pre>{{ 'objeto' | json }}</pre>
+        <pre>{{ myForm.touched| json }}</pre>
 
         <span>Value</span>
-        <pre>{{ 'objeto' | json }}</pre>
+        <pre>{{ myForm.value | json }}</pre>
 
-        <span>Precio</span>
-        <pre>{{ 'objeto' | json }}</pre>
+        <span>Precio </span>
+        <pre>{{ myForm.controls['price'].value | json }}</pre>
+
+        <span>Precio - Errors </span>
+        <pre>{{ myForm.controls['price'].errors | json }}</pre>
 
         <span>Producto</span>
-        <pre>{{ 'objeto' | json }}</pre>
+        <pre>{{ myForm.controls['name'].value | json }}</pre>
+
+        <span>Producto</span>
+        <pre>{{ myForm.controls['name'].errors | json }}</pre>
     </div>
-</div> -->
+</div> 
