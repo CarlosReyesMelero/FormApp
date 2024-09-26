@@ -54,7 +54,7 @@
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
-                           formControlName="pasword"
+                           formControlName="password"
                            placeholder="Password de su cuenta">
                     <span class="form-text text-danger">
                          La contraseña debe de ser mayor de 6 caracteres.
@@ -105,7 +105,7 @@
 <pre>{{ myForm.value.email | json }}</pre>
 
 <h5>Username</h5>
-<pre>{{ myForm.value.controls['username'].errors  | json }}</pre>
+<pre>{{ myForm.get('username')?.errors | json }}</pre>
 
 <h5>Password</h5>
 <pre>{{ myForm.value.password  | json }}</pre>
